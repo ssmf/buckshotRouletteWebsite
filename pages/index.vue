@@ -8,7 +8,7 @@
         <img src="/public/media/Header.gif" class="HeaderImg">
         <div class="GetTheGame row">
             <img class="BigIcon" src="/public/media/Dealer.png">
-            <div class="col">
+            <div class="col" style="gap: 20px;">
                 <h1>AVAILABLE ON STEAM NOW!</h1>
             <button>GET THE GAME</button>
             </div>
@@ -25,10 +25,82 @@
                 <div class="row AboutCard card4 last">A ruthless yet fair AI, that makes decisions based on what's on the table, rather than under it.</div>
             </div>
         </div>
+        <div class="Updates col" style="gap: 30px;">
+            <h1 style="color: white; text-shadow: 3px 3px black; font-size: 40px;">Updates:</h1>
+            <div class="BlogCards row">
+                <div class="blogCard col">
+                <img class="CardHeaderImage" src="/public/media/NewsletterBackground.png">
+                <h3 class="CardTitle">Steam Release is out now!</h3>
+                <h5 class="CardDate">August 2023</h5>
+            </div></div>
+        </div>
+        <div class="Newsletter col" style="gap: 10px;">
+            <h1 style="color: white; text-shadow: 3px 3px black; text-align: center">Get the latest updates on Buckshot Roulette <br><span style="color: var(--green)">right in your mailbox</span></h1>
+            <emailInput></emailInput>
+        </div>
     </div>
 </template>
 
 <style scoped>
+
+.Newsletter {
+    background-image: url('/public/media/NewsletterBackground.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 50px;
+    height: 400px;
+}
+
+.blogCard {
+    width: 500px;
+    color: white;
+    gap: 10px;
+    padding: 20px;
+    border: 5px solid var(--red);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 10px 10px 0px black;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    transition: all .1s ease-in-out;
+    opacity: .9;
+}
+
+.blogCard:hover {
+    top: 8px;
+    left: 8px;
+    box-shadow: 0px 0px 0px black;
+    opacity: 1;
+    cursor: pointer;
+    outline: solid 2px black;
+}
+
+.CardHeaderImage {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.CardTitle {
+    font-size: var(--headerSize)
+}
+
+.CardDate {
+    font-size: var(--cardContentSize);
+    color: var(--gray);
+}
+
+.Updates {
+    background-image: url('/public/media/UpdatesBackground.png');
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 50px;
+    height: 500px;
+}
 
 .card1::before,
 .card2::after,

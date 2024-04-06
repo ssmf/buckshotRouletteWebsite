@@ -14,6 +14,7 @@ html, body {
     --lightRed: #FFB9B9;
     --red: #BB484C;
     --darkRed: #591416;
+    --green: #928D68;
     --darkGreen: #484846;
     --linkSize: 20px;
     --cardContentSize: 22px;
@@ -27,6 +28,7 @@ html, body {
     font-weight: normal;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
+    margin: 0;
 }
 
 h1 {
