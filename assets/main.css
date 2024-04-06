@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: win95;
+    src: url('W95FA.otf') format('opentype');
+}
+
+:root {
+    --LinkSize: 20px;
+    --gray: #AFAFAF;
+}
+
+* {
+    font-family: 'win95', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif',
+    'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+}
+
+a {
+ color: white;
+ font-size: var(--LinkSize);
+ text-decoration: none;
+ position: relative;
+ top: 0px;
+ transition: top .05s ease-in-out;       
+}
+
+a:hover {
+  color: var(--gray);
+  text-decoration: underline;
+  top: 1px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
