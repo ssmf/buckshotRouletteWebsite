@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 
 @font-face {
@@ -9,18 +10,36 @@ html, body {
 }
 
 :root {
-    --LinkSize: 20px;
     --gray: #AFAFAF;
+    --lightRed: #FFB9B9;
+    --red: #BB484C;
+    --linkSize: 20px;
+    --headerSize: 30px;
+    --buttonTextSize: 28px;
 }
 
 * {
     font-family: 'win95', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif',
     'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: var(--headerSize);
+    color: var(--lightRed);
+}
+
+button {
+    background-color: var(--red);
+    padding: 25px 100px;
+    border-radius: 15px;
+    font-size: var(--buttonTextSize);
+    border: 2px solid black;
 }
 
 a {
  color: white;
- font-size: var(--LinkSize);
+ font-size: var(--linkSize);
  text-decoration: none;
  position: relative;
  top: 0px;
@@ -31,6 +50,10 @@ a:hover {
   color: var(--gray);
   text-decoration: underline;
   top: 1px;
+}
+
+.BigIcon {
+    width: max(150px, 20vw);
 }
 
 .row {
