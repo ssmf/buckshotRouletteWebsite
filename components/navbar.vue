@@ -4,7 +4,7 @@
 
 <template>
     <div class="Navbar row">
-        <a target="_self" href="">Home</a>
+        <a target="_self" href="/">Home</a>
         <a target="_self" href="blog">What's new</a>
         <a target="_self" href="about">About</a>
         <a target="_self" href="newsletter">Newsletter</a>

@@ -1,11 +1,18 @@
 <script setup>
+const currentPage = ref(1)
 
+const changeNum = (val) => {
+    if (currentPage.value > 0 && val > 0 || currentPage.value > 1) {
+        currentPage.value += val
+    }
+}
 </script>
 
 <template>
 <navbar></navbar>
-    <div class="Blog">
-        <a  v-for="i in 20" href="/" style="display: block; text-decoration: none">
+<div class="Blog">
+    <div class="BlogCards">
+        <a  v-for="i in 6" href="/" style="display: block; text-decoration: none">
             <div class="BlogCard col">
                 <img class="CardImage" src="/public/media/NewsletterBackground.png">
                 <h2 class="CardHeader">Steam release is out now!</h2>
@@ -13,24 +20,40 @@
             </div>
         </a>
     </div>
+    <div class="PageSelector row">
+            <button @click="changeNum(-1)"><</button>
+            <p style="color: white; font-size: 30px;">{{ currentPage }}</p>
+            <button @click="changeNum(1)">></button>
+        </div>
+</div>
 <customFooter></customFooter>
 </template>
 
 <style scoped>
+
+button {
+    padding: 15px 50px;
+}
+
 .Blog {
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 420px);
-    grid-auto-rows: 300px;
-    gap: 30px;
-    justify-content: center;
-    width: 100%;
-    min-height: 100vh;
     background-image: url('/public/media/FallingBullets.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 50px 100px;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.BlogCards {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 420px);
+    grid-auto-rows: 320px;
+    gap: 30px;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    padding: 20px 100px;
 }
 
 .BlogCard {
@@ -75,4 +98,9 @@
     border-radius: 10px;
     border: 2px solid black;
 }
+
+.PageSelector {
+    gap: 20px;
+}
+
 </style>
