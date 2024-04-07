@@ -4,10 +4,10 @@
 
 <template>
     <div class="Navbar row">
-        <a target="_blank" href="goat">Home</a>
-        <a target="_blank" href="goat">What's new</a>
-        <a target="_blank" href="goat">About</a>
-        <a target="_blank" href="goat">Newsletter</a>
+        <a target="_self" href="home">Home</a>
+        <a target="_self" href="blog">What's new</a>
+        <a target="_self" href="about">About</a>
+        <a target="_self" href="newsletter">Newsletter</a>
     </div>
 </template>
 

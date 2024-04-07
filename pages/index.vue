@@ -9,7 +9,7 @@
         <div class="GetTheGame row">
             <img class="BigIcon" src="/public/media/Dealer.png">
             <div class="col" style="gap: 20px;">
-                <h1>AVAILABLE ON STEAM NOW!</h1>
+                <h1 style="text-shadow: 3px 3px 0px black;">AVAILABLE ON STEAM NOW!</h1>
             <button>GET THE GAME</button>
             </div>
             <img class="BigIcon" src="/public/media/Contract.png" style="position: relative; top: 60%; rotate: 10deg;">
@@ -34,11 +34,12 @@
                 <h5 class="CardDate">August 2023</h5>
             </div></div>
         </div>
-        <div class="Newsletter col" style="gap: 10px;">
+        <div class="Newsletter col" style="gap: 20px;">
             <h1 style="color: white; text-shadow: 3px 3px black; text-align: center">Get the latest updates on Buckshot Roulette <br><span style="color: var(--green)">right in your mailbox</span></h1>
             <emailInput></emailInput>
         </div>
     </div>
+    <CustomFooter></CustomFooter>
 </template>
 
 <style scoped>
