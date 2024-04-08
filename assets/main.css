@@ -73,10 +73,6 @@ a:hover {
   top: 1px;
 }
 
-.BigIcon {
-    width: max(150px, 20vw);
-}
-
 .row {
     display: flex;
     justify-content: center;

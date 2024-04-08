@@ -12,18 +12,18 @@ const changeNum = (val) => {
 <navbar></navbar>
 <div class="Blog">
     <div class="BlogCards">
-        <a  v-for="i in 6" href="/" style="display: block; text-decoration: none">
+        <NuxtLink  v-for="i in 15" :to="'/blog/'+i" style="display: block; text-decoration: none">
             <div class="BlogCard col">
                 <img class="CardImage" src="/public/media/NewsletterBackground.png">
                 <h2 class="CardHeader">Steam release is out now!</h2>
                 <p class="CardContent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus dolorum, eaque culpa ipsum ea ab rerum porro officiis itaque a commodi reprehenderit, illo aperiam accusamus expedita nihil! Sequi, deleniti sapiente.</p>
             </div>
-        </a>
+        </NuxtLink>
     </div>
     <div class="PageSelector row">
-            <button @click="changeNum(-1)"><</button>
+            <button class="Left" @click="changeNum(-1)"><</button>
             <p style="color: white; font-size: 30px;">{{ currentPage }}</p>
-            <button @click="changeNum(1)">></button>
+            <button class="Right"@click="changeNum(1)">></button>
         </div>
 </div>
 <customFooter></customFooter>
@@ -33,6 +33,16 @@ const changeNum = (val) => {
 
 button {
     padding: 15px 50px;
+}
+
+.Left:active {
+    top: 10px;
+    left: 0px;
+}
+
+.Right:active {
+    top: 10px;
+    left: 10px;
 }
 
 .Blog {

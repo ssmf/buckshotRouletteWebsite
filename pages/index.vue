@@ -7,17 +7,15 @@
     <div class="Main col">
         <img src="/public/media/Header.gif" class="HeaderImg">
         <div class="GetTheGame row">
-            <img class="BigIcon" src="/public/media/Dealer.png">
             <div class="col" style="gap: 20px;">
                 <h1 style="text-shadow: 3px 3px 0px black;">AVAILABLE ON STEAM NOW!</h1>
             <button>GET THE GAME</button>
             </div>
-            <img class="BigIcon" src="/public/media/Contract.png" style="position: relative; top: 60%; rotate: 10deg;">
         </div>
         <div class="TrailerSection col">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/BbKAIy1GFF4?si=X8x1pWpY5QOLi3cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div class="About col">
+        <div id="about" class="About col">
             <div class="Content col">
                 <div class="row AboutCard card1 first">15 to 20 minute playthrough</div>
                 <div class="row AboutCard card2" style="margin-left: min(150px, 10vw);">Immersive & grounded tabletop gameplay, featuring diegetic systems and minimal UI.</div>
@@ -34,7 +32,7 @@
                 <h5 class="CardDate">August 2023</h5>
             </div></div>
         </div>
-        <div class="Newsletter col" style="gap: 20px;">
+        <div id="newsletter" class="Newsletter col" style="gap: 20px;">
             <h1 style="color: white; text-shadow: 3px 3px black; text-align: center">Get the latest updates on Buckshot Roulette <br><span style="color: var(--green)">right in your mailbox</span></h1>
             <emailInput></emailInput>
         </div>
@@ -137,6 +135,7 @@
 
 .GetTheGame {
     width: 100%;
+    min-height: 300px;
     padding: 20px 0px;
     position: relative;
     justify-content: space-around;

@@ -4,15 +4,19 @@
 
 <template>
     <div class="Navbar row">
-        <a target="_self" href="/">Home</a>
-        <a target="_self" href="blog">What's new</a>
-        <a target="_self" href="about">About</a>
-        <a target="_self" href="newsletter">Newsletter</a>
+        <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/blog">What's new</NuxtLink>
+        <NuxtLink to="/#about">About</NuxtLink>
+        <NuxtLink to="/#newsletter">Newsletter</NuxtLink>
     </div>
 </template>
 
 <style scoped>
 .Navbar {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
     background-color: black;
     height: 80px;
     gap: 50px;
