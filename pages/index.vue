@@ -14,11 +14,11 @@ const { data } = useLazySanityQuery(groq`*[_type == 'post'] | order(_createdAt a
         <div class="GetTheGame row">
             <div class="col" style="gap: 20px;">
                 <h1 style="text-shadow: 3px 3px 0px black;">AVAILABLE ON STEAM NOW!</h1>
-            <button>GET THE GAME</button>
+            <NuxtLink target="_blank" to="https://store.steampowered.com/app/2835570/Buckshot_Roulette/"><button>GET THE GAME</button></NuxtLink>
             </div>
         </div>
         <div class="TrailerSection col">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/BbKAIy1GFF4?si=X8x1pWpY5QOLi3cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="YoutubeTrailer" src="https://www.youtube.com/embed/BbKAIy1GFF4?si=X8x1pWpY5QOLi3cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div id="about" class="About col">
             <div class="Content col">
@@ -50,6 +50,11 @@ const { data } = useLazySanityQuery(groq`*[_type == 'post'] | order(_createdAt a
 
 <style scoped>
 
+.YoutubeTrailer {
+    aspect-ratio: 16 / 9;
+    width: 50vw;
+}
+
 .NuxtLink:hover {
     text-decoration: none;
 }
@@ -66,6 +71,7 @@ const { data } = useLazySanityQuery(groq`*[_type == 'post'] | order(_createdAt a
 
 .BlogCards {
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .blogCard {
@@ -116,7 +122,7 @@ const { data } = useLazySanityQuery(groq`*[_type == 'post'] | order(_createdAt a
     box-sizing: border-box;
     width: 100%;
     padding: 20px 50px;
-    height: 500px;
+    min-height: 500px;
 }
 
 .card1::before,
