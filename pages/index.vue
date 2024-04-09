@@ -1,5 +1,10 @@
 <script setup>
-
+const { data } = useLazySanityQuery(groq`*[_type == 'post'] | order(_createdAt asc)[0..2]{
+  heading,
+    content,
+    'imageUrl': image.asset->url,
+      _createdAt
+}`)
 </script>
 
 <template>
@@ -26,11 +31,14 @@
         <div class="Updates col" style="gap: 30px;">
             <h1 style="color: white; text-shadow: 3px 3px black; font-size: 40px;">Updates:</h1>
             <div class="BlogCards row">
+            <NuxtLink class="NuxtLink" v-for="(blogPost, index) in data" :key="JSON.stringify(blogPost)"  :to="'/blog/'+index">
                 <div class="blogCard col">
-                <img class="CardHeaderImage" src="/public/media/NewsletterBackground.png">
-                <h3 class="CardTitle">Steam Release is out now!</h3>
-                <h5 class="CardDate">August 2023</h5>
-            </div></div>
+                    <img class="CardHeaderImage" :src="blogPost.imageUrl">
+                    <h3 class="CardTitle">{{ blogPost.heading }}</h3>
+                    <h5 class="CardDate">{{ blogPost._createdAt.slice(0, 10) }}</h5>
+                </div>
+            </NuxtLink>
+            </div>
         </div>
         <div id="newsletter" class="Newsletter col" style="gap: 20px;">
             <h1 style="color: white; text-shadow: 3px 3px black; text-align: center">Get the latest updates on Buckshot Roulette <br><span style="color: var(--green)">right in your mailbox</span></h1>
@@ -42,6 +50,10 @@
 
 <style scoped>
 
+.NuxtLink:hover {
+    text-decoration: none;
+}
+
 .Newsletter {
     background-image: url('/public/media/NewsletterBackground.png');
     background-size: cover;
@@ -52,8 +64,13 @@
     height: 400px;
 }
 
+.BlogCards {
+    gap: 20px;
+}
+
 .blogCard {
-    width: 500px;
+    max-width: 500px;
+    max-height: 400px;
     color: white;
     gap: 10px;
     padding: 20px;
@@ -78,7 +95,8 @@
 }
 
 .CardHeaderImage {
-    width: 100%;
+    height: 50%;
+    width: 80%;
     border-radius: 15px;
 }
 

@@ -1,15 +1,21 @@
 <script setup>
 const { id } = useRoute().params
+
+const { data } = await useSanityQuery(groq`*[_type == 'post'] | order(_createdAt asc)[${id}]{
+  heading,
+    content,
+    'imageUrl': image.asset->url,
+      _createdAt
+}`)
 </script>
 
 <template>
 <navbar></navbar>
     <div class="BlogPostWrapper col">
         <div class="BlogPost col">
-            <h1 class="Heading">#{{ id }} Steam release is out now!!!</h1>
-            <img class="HeaderImage" src="/public/media/NewsletterBackground.png">
-            <p class="BlogContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lorem  lacus, fermentum a lacinia sed, porttitor ut est. Donec varius lacus  turpis. Cras velit risus, luctus id accumsan ac, hendrerit nec sem. Duis  tristique consectetur pretium. In vitae commodo felis, id consectetur  magna. Phasellus tincidunt sem ac turpis dapibus, id facilisis lacus  luctus. Mauris id mollis nisi.
-        Vivamus laoreet leo eget orci mollis, auctor feugiat lacus semper.  Quisque id porta massa. Nam non nunc aliquam, feugiat ante sit amet,  iaculis leo. Morbi dignissim, ex vel lacinia tincidunt, metus lacus  pulvinar tortor, ac luctus ipsum nibh suscipit est. Maecenas in tell</p>
+            <h1 class="Heading">#{{ Number(id)+1 }} {{ data.heading }}</h1>
+            <img class="HeaderImage" :src="data.imageUrl">
+            <p class="BlogContent">{{ data.content }}</p>
         </div>
     </div>  
 <CustomFooter></CustomFooter>
@@ -35,7 +41,7 @@ const { id } = useRoute().params
     color: white;
 }
 .HeaderImage {
-    max-width: 150%;
+    max-width: 70%;
 }
 .BlogContent {
     font-size: var(--cardContentSize);

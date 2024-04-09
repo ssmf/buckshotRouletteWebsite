@@ -5,18 +5,36 @@ const changeNum = (val) => {
     if (currentPage.value > 0 && val > 0 || currentPage.value > 1) {
         currentPage.value += val
     }
+    query = groq`*[_type == 'post'] | order(_createdAt asc)[${currentPage.value * 6 - 6}..${currentPage.value * 6 + 5}]{
+  heading,
+    content,
+    'imageUrl': image.asset->url,
+      _createdAt
+}`
+allPosts.value = useLazySanityQuery(query)
+    console.log(query)
 }
+
+let query = groq`*[_type == 'post'] | order(_createdAt asc)[${currentPage.value * 6 - 6}..${currentPage.value * 6 + 5}]{
+  heading,
+    content,
+    'imageUrl': image.asset->url,
+      _createdAt
+}`
+
+const allPosts = ref(useLazySanityQuery(query))
+
 </script>
 
 <template>
 <navbar></navbar>
-<div class="Blog">
+<div class="Blog col">
     <div class="BlogCards">
-        <NuxtLink  v-for="i in 15" :to="'/blog/'+i" style="display: block; text-decoration: none">
+        <NuxtLink  v-for="(post, index) in allPosts.data.value" :key="JSON.stringify(post)" :to="'/blog/'+index" style="display: block; text-decoration: none">
             <div class="BlogCard col">
-                <img class="CardImage" src="/public/media/NewsletterBackground.png">
-                <h2 class="CardHeader">Steam release is out now!</h2>
-                <p class="CardContent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus dolorum, eaque culpa ipsum ea ab rerum porro officiis itaque a commodi reprehenderit, illo aperiam accusamus expedita nihil! Sequi, deleniti sapiente.</p>
+                <img class="CardImage" :src="post.imageUrl">
+                <h2 class="CardHeader">{{ post.heading }}</h2>
+                <p class="CardContent">{{ post.content.slice(0,30) }}...</p>
             </div>
         </NuxtLink>
     </div>
@@ -46,12 +64,13 @@ button {
 }
 
 .Blog {
+    justify-content: space-between;
     background-image: url('/public/media/FallingBullets.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     padding: 20px;
-    min-height: 100vh;
+    min-height: 85vh;
 }
 
 .BlogCards {
@@ -64,6 +83,7 @@ button {
     align-content: center;
     width: 100%;
     padding: 20px 100px;
+    height: 100%;
 }
 
 .BlogCard {
@@ -71,7 +91,7 @@ button {
     box-sizing: border-box;
     padding: 10px 20px;
     text-align: center;
-    max-height: 300px;
+    height: fit-content;
     width: 400px;
     gap: 10px;
     border: 2px solid var(--red);
