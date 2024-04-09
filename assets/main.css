@@ -6,7 +6,7 @@ html, body {
 
 @font-face {
     font-family: win95;
-    src: url('W95FA.otf') format('opentype');
+    src: url('@/public/W95FA.otf') format('opentype');
 }
 
 :root {
